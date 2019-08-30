@@ -62,7 +62,7 @@ class TweetsController < ApplicationController
   end
 
   post '/tweets/:id' do
-    set_tweet
+    # set_tweet
     if logged_in?
       if @tweet.user == current_user && params[:content] != ""
         @tweet.update(content: params[:content])
