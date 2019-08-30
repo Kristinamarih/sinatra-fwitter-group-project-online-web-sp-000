@@ -52,7 +52,6 @@ class TweetsController < ApplicationController
   get '/tweets/:id/edit' do
     binding.pry
     set_tweet
-
     if logged_in?
       if authorized?(@tweet)
         erb :'/tweets/edit_tweet'
@@ -90,6 +89,6 @@ class TweetsController < ApplicationController
 
   private
   def set_tweet
-    @tweet = Tweet.find(params[:id])
+    @tweet = Tweet.find_by(params[:id])
   end
 end
