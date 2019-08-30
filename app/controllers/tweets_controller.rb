@@ -63,15 +63,14 @@ class TweetsController < ApplicationController
 
   post '/tweets/:id' do
     set_tweet
-    if logged_in?
-      if params[:content] != ""
+    if !logged_in?
+      redirect '/login'
+    elsif params[:content] != ""
         @tweet.update(content: params[:content])
         redirect "/tweets/#{@tweet.id}"
       else
         redirect "/tweets/#{@tweet.id}/edit"
       end
-    else
-      redirect '/login'
     end
   end
 
