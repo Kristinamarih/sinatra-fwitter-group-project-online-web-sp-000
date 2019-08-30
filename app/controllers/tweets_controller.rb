@@ -68,9 +68,9 @@ class TweetsController < ApplicationController
     elsif params[:content] != ""
         @tweet.update(content: params[:content])
         redirect "/tweets/#{@tweet.id}"
-      else
+    else
         redirect "/tweets/#{@tweet.id}/edit"
-      end
+    
     end
   end
 
