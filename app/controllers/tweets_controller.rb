@@ -50,6 +50,7 @@ class TweetsController < ApplicationController
 
   get '/tweets/:id/edit' do
     set_tweet
+    binding.pry
     if logged_in?
       if authorized?(@tweet)
         erb :'/tweets/edit_tweet'
